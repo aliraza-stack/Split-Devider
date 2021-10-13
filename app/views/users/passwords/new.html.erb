@@ -1,0 +1,26 @@
+<div class="limiter">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="container-login100">
+        <form class="login100-form validate-form">
+          <span class="login100-form-title p-b-70">
+            Forgot your password?
+          </span>
+
+<br /><br /><br /><br />
+  <div class="wrap-input100" data-validate = "Enter username">
+    <span class="focus-input100" data-placeholder="Email"></span>
+    <br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: "input100" %>
+  </div>
+<br /><br /><br /><br /><br /><br /><br /><br />
+  <div class="">
+  <%= f.submit "Send me reset password instructions", class: "login100-form-btn" %>
+</div>
+<% end %>  
+  </form>
+    
+  </div>
+</div>
+
+<%= render "users/shared/links" %>

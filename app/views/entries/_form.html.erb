@@ -1,0 +1,34 @@
+<%= form_for entry ,:html => {class: "form-horizontal", role: "form"} do |form| %>
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100 p-t-85 p-b-20">
+      <span class="login100-form-title p-b-70">
+        Edit Your Details
+      </span>
+      <div class="wrap-input100 validate-input m-t-85 m-b-35">
+      </br></br></br>
+      <div class="input100">
+
+        <%= form.text_field :name,rows: 2, placeholder: "Enter Title of expence", autofocus: true %>
+      </div>
+    </div>
+    <div class="wrap-input100 validate-input m-t-85 m-b-35">
+    </br></br></br>
+    <div class="input100">
+      <%= form.text_area :description, rows: 1, class: "form-control", placeholder: "Enter Description"%>
+    </div>
+  </div>
+  <div class="wrap-input100 validate-input m-t-85 m-b-35">
+  </br></br></br>
+  <div class="input100">
+    <%= form.text_field :price, rows: 1, class: "form-control", placeholder: "Enter Expence"%>
+  </div>
+  <%= hidden_field_tag 'group_id', @group.id %>
+</div>
+<div class="form-group">
+ <div class="col-sm-offset-2 col-sm-12">
+  <br>
+  <%= form.submit class: 'btn btn-primary btn-large' %>
+</div>
+</div>
+<% end %>

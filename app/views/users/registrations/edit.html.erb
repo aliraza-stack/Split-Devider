@@ -1,0 +1,76 @@
+
+<div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100 p-t-85 p-b-20">
+          <span class="login100-form-title p-b-70">
+            Edit Your Details
+          </span>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%#= render "devise/shared/error_messages", resource: resource %>
+  
+<% if @user.image.attached? %>
+
+
+<%=image_tag(@user.image,class: "img")%>
+  
+<%end%>
+
+
+  <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
+    <span class="focus-input100" data-placeholder="Username"></span>
+    <br />
+    <%= f.text_field :username,class: "input100" %>
+  </div>
+
+  <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter Email">
+    <span class="focus-input100" data-placeholder="Email"></span>
+    <br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: "input100" %>
+  </div>
+  <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter City">
+    <span class="focus-input100" data-placeholder="City"></span>
+    <br />
+    <%= f.text_field :city, autofocus: true ,class: "input100" %></div>  
+
+  <div class="field">
+    <%= f.label :date_of_birth %><br />
+    <%= f.date_select :date_of_birth %></div>
+    
+    <div class="field">
+    <%= f.label :Profile_photo %><br />
+    <%= f.file_field :image, autofocus: true , :method => :post%></div> 
+
+
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter Password">
+    <span class="focus-input100" data-placeholder="Password"></span>
+    <br />
+    <%= f.password_field :password,class: "input100"%>
+  </div>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+
+  <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Confrm">
+    <span class="focus-input100" data-placeholder="Repeat Password"></span>
+    <br />
+    <%= f.password_field :password_confirmation,class: "input100" %>
+  </div>
+  <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
+    <span class="focus-input100" data-placeholder="Current_password Password"></span>
+    <br />
+    <%= f.password_field :current_password,class: "input100" %>
+  </div>
+
+  <div class="container-login100-form-btn">
+  <%= f.submit "Update Setting", class: "login100-form-btn" %>
+</div>
+</br>
+<% end %>
+<%= link_to "Back", :back %>

@@ -1,0 +1,41 @@
+<div class="center">
+<h1>Groups</h1>
+<div class="container">
+<div class="row">
+<div class="col-md-4"></div>
+<div class="col-md-4">
+
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Discription</th>
+      <th></th>
+
+      <th scope="col">Action</th>
+      </tr>
+      <% @groups.each_with_index do |group, index| %>
+        </thead>
+        <tbody>
+        <tr>
+          <th scope="row"><%= index+1 %></th>
+          <td><%=link_to group.group,user_group_path(current_user, group) %></td>
+          <td><%= group.description %></td>
+          <td></td>
+          <td><%= link_to 'Edit', edit_user_group_path(current_user, group),class: "btn btn-l btn-primary" %></td>
+          <td><%= link_to 'Destroy',user_group_path(current_user, group), method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-l btn-danger" %></td>
+        </tr>
+
+      <% end %>
+      
+  </tbody>
+</table>
+<br>
+  </div>
+  </div>
+</div>
+
+<%= link_to 'New',new_user_group_path(current_user),class: "btn btn-l btn-success" %>
+</div>

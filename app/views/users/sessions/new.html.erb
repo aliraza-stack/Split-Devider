@@ -1,0 +1,31 @@
+<div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100 p-t-85 p-b-20">
+          <span class="login100-form-title p-b-70">
+            Welcome
+          </span>
+          
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
+    <span class="focus-input100" data-placeholder="Email"></span>
+    <br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: "input100" %>
+  </div>
+
+  <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter password">
+    <span class="focus-input100" data-placeholder="Password"></span>
+    <br />
+    <%= f.password_field :password, autocomplete: "current-password" ,class: "input100" %>
+  </div>
+
+  
+
+  <div class="container-login100-form-btn">
+  <%= f.submit "Log in", class: "login100-form-btn" %>
+</div>
+
+<% end %>
+
+
+<%= render "users/shared/links" %>

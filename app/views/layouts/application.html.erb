@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Owner</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+      <meta charset="UTF-8">
+
+  <%= stylesheet_link_tag'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag "application" %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css"></script>
+  
+
+  <body>
+
+   <%= render 'shared/nav' %>
+   <%= render 'shared/flash' %>
+   <%= yield %>
+ </body>
+ </html>

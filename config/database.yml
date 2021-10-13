@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: split-app
+  pool: 5
+  username: postgres
+  password: aliraza
+  timeout: 5000
+
+  test:
+  adapter: postgresql
+  encoding: unicode
+  database: split-app
+  pool: 5
+  username: postgres
+  password: aliraza
+  timeout: 5000

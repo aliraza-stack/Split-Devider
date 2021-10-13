@@ -1,0 +1,36 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Split Divider", root_path, class: "navbar-brand", id: "logo" %>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <% if current_user  %>
+        <li><%= link_to "Home",user_groups_path(current_user)%></li>
+        <li><%= link_to "New Group",new_user_group_path(current_user) %></li>
+        <li><%#= link_to "New Entry",new_entry_path(current_user) %></li>
+        <li><%= link_to "Profile update",edit_user_registration_path %></li>
+        <% end %>
+        <ul class="nav navbar-nav navbar-right">
+        <% if !current_user  %>
+        
+        <li><%= link_to "Sign Up",new_user_registration_path ,class: "glyphicon glyphicon-user"%></li>
+        
+        <li><%= link_to "Login User",user_session_path,class: "glyphicon glyphicon-user" %></li>
+        <% else %>
+          <li><%= link_to "Logout User",destroy_user_session_path, :method => :delete ,class: "glyphicon glyphicon-log-out" %>
+        <% end %>
+        </ul>
+        
+          
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

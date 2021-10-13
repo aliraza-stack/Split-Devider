@@ -1,0 +1,35 @@
+<br />
+<%- if controller_name != 'sessions' %>
+  <div class="container-login100-form-btn"><%= link_to "Sign in" ,new_session_path(resource_name),class: "btn btn-primary"%>
+  <br />
+  </div>
+<% end %>
+<br />
+
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <div class="container-login100-form-btn"><%= link_to omniauth_authorize_path(resource_name, provider) do%><%= image_tag 'btn_google.png', alt: 'Sign in with Google'%>
+<% end %>
+<br />
+</div>
+<% end %>
+<% end %>
+<br />
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <div class="container-login100-form-btn"><%= link_to "Sign Up", new_registration_path(resource_name), class: "btn btn-warning"%>
+  	<br /></div>
+<% end %>
+<br />
+
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <div class="container-login100-form-btn"><%= link_to "Forgot your password?", new_password_path(resource_name) ,class: "btn btn-danger"%><br /></div>
+<% end %>
+<br />
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <div class="container-login100-form-btn"><%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br /></div>
+<% end %>
+
+<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+  <div class="container-login100-form-btn"><%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br /></div>
+<% end %>
+

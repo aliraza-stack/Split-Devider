@@ -1,0 +1,67 @@
+<div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100 p-t-85 p-b-20">
+          <span class="login100-form-title p-b-70">
+            Sign Up
+          </span>
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
+    <span class="focus-input100" data-placeholder="Username"></span>
+    <br />
+    <%= f.text_field :username, autofocus: true,class: "input100" %>
+  </div>
+
+  <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
+    <span class="focus-input100" data-placeholder="Email"></span>
+    <br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: "input100" %>
+  </div>
+    
+  <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
+    <span class="focus-input100" data-placeholder="City"></span>
+    <br />
+    <%= f.text_field :city, autofocus: true ,class: "input100" %></div>  
+
+  <div class="field">
+    <%= f.label :Profile_photo %><br />
+    <%= f.file_field :image, autofocus: true %></div>
+
+    <div class="field">
+    <%= f.label :date_of_birth %><br />
+    <%= f.date_select :date_of_birth %></div>
+
+  <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
+    <span class="focus-input100" data-placeholder="Password"></span>
+    <br />
+    <%= f.password_field :password,class: "input100"%>
+    </div>
+
+  <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
+    <span class="focus-input100" data-placeholder="Repeat Password"></span>
+    <br />
+    <%= f.password_field :password_confirmation,class: "input100" %>
+    </div>
+
+  <div class="container-login100-form-btn">
+  <%= f.submit "Sign UP", class: "login100-form-btn" %>
+</div>
+        </form>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+
+
+
+<%= render "users/shared/links" %>
+
+
+
+

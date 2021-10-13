@@ -1,0 +1,70 @@
+
+<%= form_for [current_user, group] do |form| %>
+<div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100 p-t-85 p-b-20">
+  <div class="wrap-input100 validate-input m-t-85 m-b-35">
+   </br></br></br>
+   <div class="input100">
+    <span class="focus-input100" data-placeholder="Title"></span>
+    <br />
+    <%= form.text_field :group,rows: 2, placeholder: "Enter Title of expence"%>
+
+   </div>
+  </div>
+  <div class="wrap-input100 validate-input m-t-85 m-b-35">
+   </br></br></br>
+   <div class="input100">
+    <span class="focus-input100" data-placeholder="Description"></span>
+    <br />
+    <%= form.text_field :description, rows: 1, class: "form-control", placeholder: "Enter Description"%>
+   </div>
+  </div>
+  <div class="form-group">
+   <div class="col-sm-offset-2 col-sm-12">
+    <br>
+    <div class="form-group">
+      <% if params[:action ] == "new" %>
+  <label class="col-md-4 control-label" for="Member">Add Members into Group by Email</label>
+  <% else %>
+  <label class="col-md-4 control-label" for="Member">Edit Members into Group by Email</label>
+  <% end %>
+  <div class="col-md-4">
+    
+    <select id="Member" name="Member" class="form-control">
+      <% @users.each do |f| %>
+      <option><%=f.username%></option>
+      <% end %>
+    </select>
+  </div>
+
+
+<%= select_tag 'members[]', options_for_select(User.all.map{ |s| [s.email]})%>
+
+
+</div>
+    <%= form.submit class: 'btn btn-primary btn-large' %>
+   </div>
+  </div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

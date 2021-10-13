@@ -1,0 +1,44 @@
+$navbar-default-bg: black;
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+.hidden {
+	display: none;
+}
+#logo {
+ float: left;
+ font-size: 1.7em;
+ color: white;
+ text-transform: uppercase;
+ letter-spacing: -1px;
+ font-weight: bold;
+}
+#logo:hover {
+ color: #fff;
+ text-decoration: none;
+}
+.article-actions {
+ border-top: 1px solid #eaeaea;
+ padding-top: 5px;
+}
+.article-title {
+ font-weight: bold;
+ font-size: 1.5em;
+}
+.article-body {
+ border-top: 1px solid #eaeaea;
+ padding-top: 15px;
+ padding-bottom: 15px;
+}
+.article-meta-details {
+ border-top: 1px solid #eaeaea;
+ margin-top: 15px;
+}
+.description {
+ margin-top: 0;
+}
+.listing {
+ list-style: none;
+ padding-left: 0;
+}

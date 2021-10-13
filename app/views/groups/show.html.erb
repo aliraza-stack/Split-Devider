@@ -1,0 +1,50 @@
+<div class="center">
+  <p><strong class="">Expence Title: <%= @group.group %></strong></p>
+  <p><strong>Expence: </strong><%= @group.description %></p>
+  <button>All Entries</button>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <table class="table">
+         <thead class="thead-dark">
+           <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th></th>
+            <th scope="col">Action</th>
+          </tr>
+          <% @group.entries.each do |entry| %>
+
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><%=entry.id %></th>
+            <td><%= link_to entry.name,user_group_entry_path(entry.user,entry.group,entry)%></td>
+            <td><%= entry.price %></td>
+            <td></td>
+            <td><%= link_to 'Edit', edit_user_group_entry_path(entry.user,entry.group,entry),class: "btn btn-l btn-primary" %></td>
+            
+            <td><%= link_to 'Destroy', user_group_entry_path(entry.user,entry.group,entry), method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-l btn-danger" %></td>
+            <%end%>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<h1>Grand Total: <%= sum_of_prices(@group) %> </h1><br>
+<%= link_to 'Join Members', edit_user_group_path(current_user, @group),class: "btn btn-l btn-info" %> |
+<%= link_to 'Edit Group', edit_user_group_path(current_user, @group),class: "btn btn-l btn-primary" %> |
+
+<%= link_to 'New Entry', new_user_group_entry_path(current_user,@group) ,class: "btn btn-l btn-success"%>  |
+
+<%= link_to 'Back', user_groups_path(current_user) ,class: "btn btn-l btn-danger"%>
+</div>
+
+</div>
